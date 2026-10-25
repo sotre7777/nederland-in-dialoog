@@ -1,0 +1,179 @@
+{
+ "toelichting": "Startset voor laag 2, afgeleid uit de verwijzingen tussen principes in het werkdocument van 25 oktober 2026. Nog niet getoetst; het werkdocument zegt zelf dat de startset nog gemaakt moet worden. 'naar': '*' betekent: tegen elk ander principe.",
+ "paren": [
+  {
+   "van": "pensioen",
+   "naar": "wonen",
+   "zin": "Pensioen verwijst naar Wonen in de formulering",
+   "status": "startset"
+  },
+  {
+   "van": "pensioen",
+   "naar": "bevolking",
+   "zin": "met Bevolking (AOW is omslag).",
+   "status": "startset"
+  },
+  {
+   "van": "inkomen",
+   "naar": "vangnet",
+   "zin": "vangnet versus loont (sociale zekerheid)",
+   "status": "startset"
+  },
+  {
+   "van": "vangnet",
+   "naar": "inkomen",
+   "zin": "vangnet versus loont (inkomen)",
+   "status": "startset"
+  },
+  {
+   "van": "wonen",
+   "naar": "inkomen",
+   "zin": "Wonen verwijst naar Inkomen in de formulering",
+   "status": "startset"
+  },
+  {
+   "van": "wonen",
+   "naar": "bevolking",
+   "zin": "\"wie hier woont\" hangt aan Bevolking.",
+   "status": "startset"
+  },
+  {
+   "van": "bevolking",
+   "naar": "wonen",
+   "zin": "Bevolking verwijst naar Wonen in de formulering",
+   "status": "startset"
+  },
+  {
+   "van": "bevolking",
+   "naar": "zorg",
+   "zin": "alleen AOW en zorg draaien op omslag en hebben werkenden nodig.",
+   "status": "startset"
+  },
+  {
+   "van": "bevolking",
+   "naar": "immigratie",
+   "zin": "Bevolking verwijst naar Immigratie in de formulering",
+   "status": "startset"
+  },
+  {
+   "van": "zorg",
+   "naar": "bevolking",
+   "zin": "zorgpersoneel versus andere sectoren (hangt aan Bevolking)",
+   "status": "startset"
+  },
+  {
+   "van": "veiligheid",
+   "naar": "defensie",
+   "zin": "landelijk gemiddelde versus concentratie in wijken. Naar laag 5: straffen versus voorkomen. Defensie apart (veiligheid naar buiten).",
+   "status": "startset"
+  },
+  {
+   "van": "immigratie",
+   "naar": "bevolking",
+   "zin": "Immigratie verwijst naar Bevolking in de formulering",
+   "status": "startset"
+  },
+  {
+   "van": "leefomgeving",
+   "naar": "wonen",
+   "zin": "met Wonen en Bevolking.",
+   "status": "startset"
+  },
+  {
+   "van": "leefomgeving",
+   "naar": "bevolking",
+   "zin": "met Wonen en Bevolking.",
+   "status": "startset"
+  },
+  {
+   "van": "defensie",
+   "naar": "zorg",
+   "zin": "mensen uit dezelfde krappe arbeidsmarkt als de zorg: vrijwillig versus dienstplicht. Laag in COB, hoog in het debat: die kloof is zelf een signaal.",
+   "status": "startset"
+  },
+  {
+   "van": "defensie",
+   "naar": "veiligheid",
+   "zin": "Defensie verwijst naar Veiligheid in de formulering",
+   "status": "startset"
+  },
+  {
+   "van": "defensie",
+   "naar": "*",
+   "zin": "defensie versus elk ander principe (enige rekening die overal vandaan komt)",
+   "status": "startset"
+  },
+  {
+   "van": "leefomgeving",
+   "naar": "*",
+   "zin": "nu versus later (enige afruil met een partij die niet aan tafel zit)",
+   "status": "startset"
+  }
+ ],
+ "intern": [
+  {
+   "principe": "pensioen",
+   "zin": "één leeftijd voor iedereen versus naar beroep (gezonde levensverwachting verschilt sterk naar opleiding, unverified hoeveel)"
+  },
+  {
+   "principe": "inkomen",
+   "zin": "inspanning versus marktwaarde. Bewust zonder \"eerlijk\": daar zit de ideologie, die hoort op laag 2."
+  },
+  {
+   "principe": "vangnet",
+   "zin": "vertrouwen versus fraudebestrijding"
+  },
+  {
+   "principe": "vangnet",
+   "zin": "tijdelijk versus structureel en wie dat beoordeelt. Geleerde ligt klaar: Ongekend onrecht (2020), Fraudewet 2013 breed gesteund"
+  },
+  {
+   "principe": "wonen",
+   "zin": "bouwen versus ruimte, natuur, stikstof"
+  },
+  {
+   "principe": "bevolking",
+   "zin": "groei versus ruimte"
+  },
+  {
+   "principe": "bevolking",
+   "zin": "jong versus oud"
+  },
+  {
+   "principe": "zorg",
+   "zin": "alles behandelen versus betaalbaar"
+  },
+  {
+   "principe": "zorg",
+   "zin": "dichtbij versus geconcentreerd."
+  },
+  {
+   "principe": "veiligheid",
+   "zin": "veiligheid versus vrijheid (toezicht, data)"
+  },
+  {
+   "principe": "immigratie",
+   "zin": "de drie \"tegelijkertijd\"s hierboven, plus arbeidsmigratie die de economie nodig heeft versus tempo dat buurten dragen."
+  },
+  {
+   "principe": "leefomgeving",
+   "zin": "nu versus later (enige afruil met een partij die niet aan tafel zit)"
+  },
+  {
+   "principe": "leefomgeving",
+   "zin": "grens versus boeren, bouwen, groei"
+  },
+  {
+   "principe": "defensie",
+   "zin": "defensie versus elk ander principe (enige rekening die overal vandaan komt)"
+  },
+  {
+   "principe": "defensie",
+   "zin": "verdedigen versus missies"
+  },
+  {
+   "principe": "defensie",
+   "zin": "eigen capaciteit versus afhankelijkheid van bondgenoten (minder vertrouwen in VS)"
+  }
+ ]
+}

@@ -1,0 +1,290 @@
+<title>Nederland in Dialoog</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one column, phone first; seven screens, one at a time, progress rail on top. */
+:root{
+  --bg:#F2F1EC; --surface:#FAF9F6; --fg:#1E2024; --muted:#5F626B; --line:#D8D6CE;
+  --accent:#A87F1A; --accent-ink:#8A6710; --accent-soft:#EFE6CC;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15171B; --surface:#1D2026; --fg:#E7E5DE; --muted:#9FA1AA; --line:#2E3139;
+  --accent:#D4AA42; --accent-ink:#E2BC5C; --accent-soft:#2C2614; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171B; --surface:#1D2026; --fg:#E7E5DE; --muted:#9FA1AA; --line:#2E3139;
+  --accent:#D4AA42; --accent-ink:#E2BC5C; --accent-soft:#2C2614; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent-ink);text-underline-offset:2px}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.15;text-wrap:balance;margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+button,select,input,textarea{font:inherit;color:inherit}
+
+.wrap{max-width:64ch;margin:0 auto;padding-block:16px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+header.top .brand{font-family:var(--display);font-size:19px}
+header.top .brand small{display:block;font-family:var(--body);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rail{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:22px}
+.rail span{height:4px;border-radius:2px;background:var(--line)}
+.rail span.done{background:var(--accent)}
+.rail span.cur{background:var(--accent);opacity:.55}
+.stepno{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+h1.t{font-size:clamp(26px,6vw,34px);margin-bottom:8px}
+.lede{font-family:var(--display);font-size:18px;color:var(--muted);line-height:1.4;margin:0 0 20px}
+p{margin:0 0 12px}
+.card{display:block;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 14px 12px;margin-bottom:10px;cursor:pointer;min-width:0}
+.card:hover{border-color:var(--accent)}
+.card.sel{border-color:var(--accent);background:var(--accent-soft)}
+.card.flat{cursor:default}
+.card.flat:hover{border-color:var(--line)}
+.card .h{font-family:var(--display);font-size:19px;line-height:1.2;margin-bottom:4px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.card .s{font-size:14px;color:var(--muted)}
+.card .z{font-size:15px;margin-top:6px}
+.chip{display:inline-block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;border:1px solid var(--line);color:var(--muted);white-space:nowrap;vertical-align:middle}
+.chip.meting{border-color:var(--accent);color:var(--accent-ink)}
+.chip.ruw{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+.grp{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px;display:flex;justify-content:space-between}
+details{border-top:1px solid var(--line);padding-top:10px;margin-top:14px}
+summary{cursor:pointer;color:var(--muted);font-size:14px}
+.none{font-size:14px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--line)}
+.none:last-child{border-bottom:0}
+.bar{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.btn{background:var(--fg);color:var(--bg);border:0;border-radius:4px;padding:10px 16px;font-weight:600;cursor:pointer}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn.ghost{background:none;color:var(--muted);border:1px solid var(--line);font-weight:500}
+.hint{font-size:13px;color:var(--muted)}
+.form{border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin:14px 0}
+.form .lb{font-weight:600;color:var(--accent-ink)}
+.kiz{display:grid;gap:8px;margin:12px 0}
+.kiz>div{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-size:15px}
+.kiz b{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:3px}
+.bel{margin:0 0 10px;padding-left:0;list-style:none}
+.bel li{padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.bel li b{font-weight:600}
+.score{display:grid;gap:8px;margin:10px 0}
+.score>div{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-size:13.5px}
+.score .b{font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--accent);display:inline-block;flex:none}
+.dot.h{background:linear-gradient(90deg,var(--accent) 50%,transparent 50%)}
+.dot.f{background:var(--accent)}
+.score .r{color:var(--muted)}
+.md p{margin:0 0 10px}.md ul{padding-left:20px;margin:0 0 10px}.md em{font-style:italic}.md strong{font-weight:600}
+.opt{display:block;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt .h{font-weight:600;margin-bottom:2px}
+.opt .s{font-size:13.5px;color:var(--muted)}
+label.f{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+select,input[type=text],textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:9px 10px;font-size:15px}
+textarea{min-height:70px;resize:vertical}
+.sentence{font-family:var(--display);font-size:22px;line-height:1.3;border-left:3px solid var(--accent);padding:4px 0 4px 14px;margin:18px 0}
+.sentence i{color:var(--muted);font-style:italic}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.cmp>div{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;min-width:0;font-size:14.5px}
+.cmp .lab{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.cmp .big{font-family:var(--display);font-size:18px;line-height:1.3}
+.close{font-family:var(--display);font-size:19px;line-height:1.35;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+.links{font-size:13px;color:var(--muted);margin-top:6px}
+.links a{margin-right:10px}
+.wait{background:var(--accent-soft);border:1px solid var(--accent);border-radius:4px;padding:10px 12px;font-size:14px;margin:12px 0}
+.mijn{font-size:13px;color:var(--muted);margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
+.mijn div{padding:6px 0;border-bottom:1px solid var(--line)}
+@media (max-width:480px){.cmp{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+<header class="top"><div class="brand">Nederland in Dialoog<small>Van nieuws naar principe naar eigen afweging</small></div><button class="btn ghost" id="restart" type="button" hidden>Opnieuw</button></header>
+<div class="rail" id="rail"></div>
+<div id="screen"></div>
+</div>
+
+<script id="principes" type="application/json">__PRINCIPES__</script>
+<script id="afruilen" type="application/json">__AFRUILEN__</script>
+<script id="opening" type="application/json">__OPENING__</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+<script>
+(function(){
+  const PR = JSON.parse(document.getElementById('principes').textContent).principes;
+  const AF = JSON.parse(document.getElementById('afruilen').textContent);
+  const OP = JSON.parse(document.getElementById('opening').textContent);
+  const byId = Object.fromEntries(PR.map(p=>[p.id,p]));
+  const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const inl = s => marked.parseInline(s||'');
+  const md = s => marked.parse(s||'');
+  const STAPPEN = ['Opening','Uitzoomen','Het geleerde','Afweging','Zelfs als','Mijn deel','Terug'];
+  const HORIZON = ['deze kabinetsperiode','de komende tien jaar','een generatie'];
+
+  // state of one cirkel
+  let S = fresh();
+  function fresh(){ return {stap:0,item:null,principe:null,belofte:null,afweging:null,afwegingWat:'',ander:null,horizon:HORIZON[1],waarom:'',deel:''}; }
+
+  const screen = document.getElementById('screen');
+  const rail = document.getElementById('rail');
+  const restart = document.getElementById('restart');
+  restart.addEventListener('click',()=>{S=fresh();render();});
+
+  function render(){
+    rail.innerHTML = STAPPEN.map((n,i)=>`<span class="${i<S.stap?'done':i===S.stap?'cur':''}" title="${n}"></span>`).join('');
+    restart.hidden = S.stap===0;
+    screen.innerHTML = [s0,s1,s2,s3,s4,s5,s6][S.stap]();
+    window.scrollTo({top:0});
+    bind();
+  }
+  function head(i,title,lede){ return `<div class="stepno">Stap ${i+1} van 7 · ${STAPPEN[i]}</div><h1 class="t">${title}</h1>${lede?`<p class="lede">${lede}</p>`:''}`; }
+  function bar(back,next,nextLabel,enabled){ return `<div class="bar">${back?'<button class="btn ghost" data-back type="button">Terug</button>':'<span></span>'}${next?`<button class="btn" data-next type="button" ${enabled?'':'disabled'}>${nextLabel||'Verder'}</button>`:''}</div>`; }
+  const standCls = s => { s=(s||'').toLowerCase(); return s.startsWith('dichtbij')?'f':(s.startsWith('halverwege')||s.startsWith('omstreden'))?'h':''; };
+
+  // ---- 0 Opening ----
+  function s0(){
+    const latest = OP.items[0] ? OP.items[0].datum : '';
+    const today = OP.items.filter(x=>x.datum===latest);
+    const earlier = OP.items.filter(x=>x.datum!==latest);
+    const card = x => {
+      const none = x.kandidaten && x.kandidaten.length===0;
+      if(none) return '';
+      return `<button class="card" data-pick="${x.id}" type="button"><div class="h"><span>${esc(x.titel)}</span><span class="chip ${x.soort}">${x.soort}</span></div><div class="s">${esc(x.samenvatting).slice(0,220)}${x.samenvatting.length>220?'…':''}</div></button>`;
+    };
+    const nonelist = xs => xs.filter(x=>x.kandidaten&&x.kandidaten.length===0).map(x=>`<div class="none">${esc(x.titel)}</div>`).join('');
+    const fmt = d => { const [y,m,dd]=d.split('-'); return `${+dd} ${['','januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'][+m]} ${y}`; };
+    return head(0,'Wat is er gebeurd?','Kies een onderwerp uit het nieuws. Het raamwerk begint pas bij het principe dat het raakt, niet bij het incident zelf.')+
+      `<div class="grp"><span>Metingen en rapporten</span><span>schoonste ingang</span></div>${today.concat(earlier).filter(x=>x.soort==='meting').map(card).join('')||'<p class="hint">Geen nieuwe metingen in het archief.</p>'}
+       <div class="grp"><span>Nieuws van ${fmt(latest)}</span><span>incident of besluit</span></div>${today.filter(x=>x.soort!=='meting').map(card).join('')}
+       <div class="grp"><span>Eerder deze week</span></div>${earlier.filter(x=>x.soort!=='meting').map(card).join('')}
+       <details><summary>Raakt geen van de elf principes (${OP.items.filter(x=>x.kandidaten&&x.kandidaten.length===0).length})</summary><p class="hint" style="margin-top:8px">Dat is een uitkomst, geen fout. Het meeste nieuws is geen principekwestie.</p>${nonelist(OP.items)}</details>
+       <details><summary>Eigen onderwerp inbrengen</summary><p class="hint" style="margin-top:8px">Nog zonder automatische koppeling: je kiest straks zelf het principe.</p><label class="f" for="eigen">Kop of korte samenvatting</label><input type="text" id="eigen" placeholder="Bijv. Gemeente verhoogt parkeertarief om zwembad open te houden"><div class="bar"><span></span><button class="btn" data-eigen type="button">Verder</button></div></details>
+       <p class="hint" style="margin-top:24px">Bron: dagelijks nieuwsoverzicht, ${esc(OP.gegenereerd_uit.join(', '))}. Koppeling aan principes is in deze versie handmatig.</p>`;
+  }
+
+  // ---- 1 Uitzoomen ----
+  function s1(){
+    const x=S.item;
+    const kand = x.kandidaten||[];
+    const wait = x.soort==='incident' ? `<div class="wait">Dit is een incident. Het raamwerk weegt niet in de week van de rellen. Je mag doorlopen, maar je uitkomst krijgt het label "binnen een week na het incident".</div>`:'';
+    const cards = kand.length ? kand.map(k=>{const p=byId[k.principe];return `<button class="card ${S.principe===p.id?'sel':''}" data-pr="${p.id}" type="button"><div class="h"><span>${esc(p.naam)}</span>${p.ruw?'<span class="chip ruw">ruw</span>':''}</div><div class="s">${esc(p.titel)}</div><div class="z">${esc(k.zin)}</div></button>`}).join('')
+      : `<p class="hint">Geen automatische koppeling. Kies zelf welk principe dit raakt:</p>`+PR.map(p=>`<button class="card ${S.principe===p.id?'sel':''}" data-pr="${p.id}" type="button"><div class="h"><span>${esc(p.naam)}</span></div><div class="s">${esc(p.titel)}</div></button>`).join('');
+    return head(1,'Welk principe raakt dit?','De koppeling is de meest politieke stap in de hele cirkel. Daarom staat bij elke suggestie de zin die haar draagt, en kies jij.')+
+      `<div class="card flat"><div class="h"><span>${esc(x.titel)}</span><span class="chip ${x.soort}">${x.soort}</span></div><div class="s">${esc(x.samenvatting)}</div>${x.links&&x.links.length?`<div class="links">${x.links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.medium)}</a>`).join('')}</div>`:''}</div>
+       ${wait}${cards}${bar(true,true,'Naar het geleerde',!!S.principe)}`;
+  }
+
+  // ---- 2 Geleerde ----
+  function s2(){
+    const p=byId[S.principe];
+    const kiz = p.kans ? `<div class="kiz"><div><b>Kans</b>${inl(p.kans)}</div><div><b>Inhoud</b>${inl(p.inhoud)}</div><div><b>Zodat</b>${inl(p.zodat)}</div></div>` : `<div class="form">${inl(p.formulering.split('. Cijfers:')[0])}</div>`;
+    const bel = p.beloften.map((b,i)=>`<li><b>${i+1}. ${esc(b.titel)}</b> ${esc(b.tekst)}</li>`).join('');
+    const score = p.scorebord.map(r=>{const k=Object.keys(r);const st=r[k[1]];return `<div><div class="b"><span class="dot ${standCls(st)}"></span>${inl(r[k[0]])} <span class="hint">· ${esc(st)}</span></div><div class="r">${inl(r[k[2]]||'')}${r[k[3]]?' · ervaren: '+inl(r[k[3]]):''}</div><div class="r">Richting: ${inl(r[k[k.length-1]]||'')}</div></div>`}).join('');
+    return head(2,esc(p.naam)+(p.ruw?' <span class="chip ruw">ruw</span>':''),esc(p.titel))+
+      kiz+
+      `<div class="grp"><span>De beloften</span></div><ul class="bel">${bel}</ul>${p.randvoorwaarde?`<p class="hint">${inl(p.randvoorwaarde)}</p>`:''}
+       <div class="grp"><span>Waar staan we nu</span><span>objectief · ervaren · richting</span></div><div class="score">${score}</div>
+       ${p.doorgeschoten?`<div class="grp"><span>Waar schoten we door</span></div><p>${inl(p.doorgeschoten)}</p>`:''}
+       <details><summary>Wat de geschiedenis zegt over het zelfs-als</summary><div class="md" style="margin-top:8px">${md(p.zelfsals_geschiedenis)}</div></details>
+       <details><summary>Wat we deden, per belofte</summary>${p.geleerde.map(g=>`<div class="grp"><span>${g.nr}. ${esc(g.belofte)}</span></div>${g.maatregelen.map(m=>`<div class="none"><b>${inl(m.wat)}</b><br><span class="hint">Offer: ${inl(m.offer)} · Waarvoor: ${inl(m.waarvoor)}</span><br>${inl(m.opleverde)}</div>`).join('')}<p class="hint" style="margin-top:6px">Stand: ${inl(g.stand)}</p>`).join('')}</details>
+       <p class="hint" style="margin-top:18px">${p.ruw?'Dit overzicht is in één onderzoeksronde gemaakt en nog niet nagelezen; de standen zijn een lezing van de cijfers, geen oordeel van een planbureau. ':''}Geen kabinetten, geen partijen: een maatregel is een bijdrage aan een gedeeld doel, wie hem ook nam.</p>
+       <div id="gate"></div>${bar(true,true,'Naar de afweging',false)}`;
+  }
+
+  // ---- 3 Afweging ----
+  function s3(){
+    const p=byId[S.principe];
+    const opts = p.beloften.map((b,i)=>`<option value="${i}" ${S.belofte===i?'selected':''}>${i+1}. ${esc(b.titel)}</option>`).join('');
+    const instr = [...new Set(p.geleerde.flatMap(g=>g.maatregelen.map(m=>m.wat)))];
+    const paren = AF.paren.filter(a=>a.van===p.id&&a.naar!=='*').map(a=>a.naar);
+    const anderen = PR.filter(q=>q.id!==p.id).sort((a,b)=>(paren.includes(b.id)?1:0)-(paren.includes(a.id)?1:0));
+    const sub = {
+      intern: `<label class="f" for="wat">Welk bestaand instrument wordt kleiner of verdwijnt?</label><select id="wat"><option value="">kies…</option>${instr.map(w=>`<option ${S.afwegingWat===w?'selected':''}>${esc(w)}</option>`).join('')}<option value="__anders" ${S.afwegingWat&&!instr.includes(S.afwegingWat)?'selected':''}>Iets anders…</option></select>${S.afwegingWat&&!instr.includes(S.afwegingWat)?`<input type="text" id="watvrij" value="${esc(S.afwegingWat==='__anders'?'':S.afwegingWat)}" placeholder="Noem het instrument" style="margin-top:8px">`:''}`,
+      ander: `<label class="f">Welk ander principe krijgt het voor zijn kiezen?</label>${anderen.map(q=>{const z=AF.paren.find(a=>a.van===p.id&&a.naar===q.id);return `<button class="opt ${S.ander===q.id?'sel':''}" data-ander="${q.id}" type="button"><div class="h">${esc(q.naam)} ${z?'<span class="chip">in de startset</span>':''}</div><div class="s">${esc(z?z.zin:q.titel)}</div></button>`}).join('')}`,
+      belasting: `<label class="f" for="watb">Hoeveel, en bij wie komt de rekening?</label><input type="text" id="watb" value="${esc(S.afwegingWat)}" placeholder="Bijv. 0,3% bbp, via de inkomstenbelasting boven modaal">`,
+    };
+    const ok = S.belofte!=null && S.afweging && (S.afweging==='ander'?!!S.ander:(S.afwegingWat&&S.afwegingWat!=='__anders'));
+    return head(3,'Waar komt het vandaan?','Je kunt niet alles hebben. Drie eerlijke antwoorden, geen vierde.')+
+      `<label class="f" for="bel">Welke belofte van ${esc(p.naam)} raakt dit?</label><select id="bel"><option value="">kies…</option>${opts}</select>
+       <div class="grp"><span>Het antwoord</span></div>
+       <button class="opt ${S.afweging==='intern'?'sel':''}" data-afw="intern" type="button"><div class="h">Binnen het principe</div><div class="s">Een ander instrument van ${esc(p.naam)} wordt kleiner. Het HOE verandert, de rekening niet.</div></button>
+       <button class="opt ${S.afweging==='ander'?'sel':''}" data-afw="ander" type="button"><div class="h">Bij een ander principe</div><div class="s">Het geld of de ruimte komt van een ander gedeeld doel. Dat is het zelfs-als.</div></button>
+       <button class="opt ${S.afweging==='belasting'?'sel':''}" data-afw="belasting" type="button"><div class="h">Meer belasting</div><div class="s">De contributie voor de elf principes gaat omhoog. Zeg erbij hoeveel en bij wie.</div></button>
+       ${S.afweging?sub[S.afweging]:''}
+       ${bar(true,true,'Naar de zin',ok)}`;
+  }
+
+  // ---- 4 Zelfs als ----
+  function kost(){
+    if(S.afweging==='ander'){const q=byId[S.ander];return 'het ten koste gaat van '+q.naam.toLowerCase()+' ("'+q.titel+'")';}
+    if(S.afweging==='belasting') return 'de belasting omhoog gaat ('+S.afwegingWat+')';
+    return S.afwegingWat.toLowerCase()+' kleiner wordt';
+  }
+  function zin(){
+    const p=byId[S.principe], b=p.beloften[S.belofte];
+    return `Ik wil dat ${b?b.titel.replace(/\.$/,'').toLowerCase():p.titel.toLowerCase()}, zelfs als ${S.afweging==='ander'?kost():'dat betekent dat '+kost()}, voor ${S.horizon}.`;
+  }
+  function s4(){
+    return head(4,'Zeg het hardop','Vaste grammatica, zodat het pijn doet waar het hoort. Alleen de waarom-regel is van jou.')+
+      `<div class="sentence">${esc(zin())}</div>
+       <label class="f" for="hor">Tijdshorizon</label><select id="hor">${HORIZON.map(h=>`<option ${S.horizon===h?'selected':''}>${h}</option>`).join('')}</select>
+       <label class="f" for="waarom">Waarom (één regel)</label><input type="text" id="waarom" maxlength="200" value="${esc(S.waarom)}" placeholder="Omdat…">
+       ${bar(true,true,'Naar mijn deel',true)}`;
+  }
+
+  // ---- 5 Mijn deel ----
+  function s5(){
+    const p=byId[S.principe];
+    return head(5,'Wat doe ik zelf?','Niet alles is overheid. Elk principe heeft een regel over wat wij zelf doen.')+
+      `<div class="form"><span class="lb">Wat wij zelf doen</span> ${inl(p.watwijzelf||'(nog niet geformuleerd voor dit principe)')}</div>
+       <label class="f" for="deel">Jouw deel hierin</label><textarea id="deel" placeholder="Wat verandert er aan wat jij doet of accepteert?">${esc(S.deel)}</textarea>
+       ${bar(true,true,'Rond de cirkel',true)}`;
+  }
+
+  // ---- 6 Terug ----
+  function s6(){
+    const p=byId[S.principe], x=S.item;
+    const label = x.soort==='incident'?' · binnen een week na het incident':'';
+    const rec = {datum:new Date().toISOString().slice(0,10),item:x.titel,principe:p.naam,belofte:p.beloften[S.belofte]?p.beloften[S.belofte].titel:'',afweging:S.afweging,kost:kost(),horizon:S.horizon,zin:zin(),waarom:S.waarom,deel:S.deel};
+    try{const l=JSON.parse(localStorage.getItem('nid.cirkels')||'[]');l.unshift(rec);localStorage.setItem('nid.cirkels',JSON.stringify(l.slice(0,30)));}catch(e){}
+    let mijn=[];try{mijn=JSON.parse(localStorage.getItem('nid.cirkels')||'[]');}catch(e){}
+    const txt = `${x.titel}\n\nPrincipe: ${p.naam} (${p.titel})\n${rec.zin}\n${S.waarom?'Omdat '+S.waarom+'\n':''}Mijn deel: ${S.deel||'–'}\n\nNederland in Dialoog · ${rec.datum}${label}`;
+    return head(6,'De cirkel is rond','Links wat het nieuws zei. Rechts wat jij nu zegt, en bij stap 1 niet zei.')+
+      `<div class="cmp"><div><div class="lab">Het nieuws</div><div class="big">${esc(x.titel)}</div><p class="hint" style="margin-top:6px">${esc(x.samenvatting).slice(0,200)}…</p></div>
+       <div><div class="lab">Jij</div><div class="big">${esc(rec.zin)}</div>${S.waarom?`<p style="margin-top:6px">Omdat ${esc(S.waarom)}</p>`:''}<p class="hint" style="margin-top:6px">Mijn deel: ${esc(S.deel||'–')}</p><p class="hint">${esc(p.naam)}${label}</p></div></div>
+       <textarea id="export" readonly style="font-size:13px;min-height:120px">${esc(txt)}</textarea>
+       <div class="bar"><button class="btn ghost" data-copy type="button">Kopieer tekst</button><button class="btn" data-restart type="button">Nieuw onderwerp</button></div>
+       <div class="close">Ga hiermee het gesprek aan met de partij waar jij je thuis voelt. Die koppeling maken wij niet.</div>
+       ${mijn.length>1?`<div class="mijn"><b>Eerdere cirkels op dit apparaat</b>${mijn.slice(1,6).map(m=>`<div>${esc(m.datum)} · ${esc(m.principe)} · ${esc(m.zin)}</div>`).join('')}</div>`:''}`;
+  }
+
+  // ---- events ----
+  function bind(){
+    screen.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{S.item=OP.items.find(x=>x.id===b.dataset.pick);S.principe=null;S.stap=1;render();}));
+    const eig=screen.querySelector('[data-eigen]'); if(eig) eig.addEventListener('click',()=>{const v=document.getElementById('eigen').value.trim(); if(!v)return; S.item={id:'eigen',titel:v,samenvatting:'Eigen onderwerp.',soort:'incident',kandidaten:null,links:[]};S.stap=1;render();});
+    screen.querySelectorAll('[data-pr]').forEach(b=>b.addEventListener('click',()=>{S.principe=b.dataset.pr;S.belofte=null;S.afweging=null;S.ander=null;S.afwegingWat='';render();}));
+    screen.querySelectorAll('[data-afw]').forEach(b=>b.addEventListener('click',()=>{S.afweging=b.dataset.afw;S.afwegingWat='';S.ander=null;render();}));
+    screen.querySelectorAll('[data-ander]').forEach(b=>b.addEventListener('click',()=>{S.ander=b.dataset.ander;render();}));
+    const bel=document.getElementById('bel'); if(bel) bel.addEventListener('change',()=>{S.belofte=bel.value===''?null:+bel.value;render();});
+    const wat=document.getElementById('wat'); if(wat) wat.addEventListener('change',()=>{S.afwegingWat=wat.value;render(); const f=document.getElementById('watvrij'); if(f) f.focus();});
+    const wv=document.getElementById('watvrij'); if(wv) wv.addEventListener('input',()=>{S.afwegingWat=wv.value||'__anders';toggleNext();});
+    const wb=document.getElementById('watb'); if(wb) wb.addEventListener('input',()=>{S.afwegingWat=wb.value;toggleNext();});
+    const hor=document.getElementById('hor'); if(hor) hor.addEventListener('change',()=>{S.horizon=hor.value;screen.querySelector('.sentence').textContent=zin();});
+    const wa=document.getElementById('waarom'); if(wa) wa.addEventListener('input',()=>{S.waarom=wa.value;});
+    const de=document.getElementById('deel'); if(de) de.addEventListener('input',()=>{S.deel=de.value;});
+    screen.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>{S.stap=Math.max(0,S.stap-1);render();}));
+    screen.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{S.stap=Math.min(6,S.stap+1);render();}));
+    screen.querySelectorAll('[data-restart]').forEach(b=>b.addEventListener('click',()=>{S=fresh();render();}));
+    const cp=screen.querySelector('[data-copy]'); if(cp) cp.addEventListener('click',()=>{const t=document.getElementById('export');const done=()=>{cp.textContent='Gekopieerd';};navigator.clipboard&&navigator.clipboard.writeText(t.value).then(done).catch(()=>{t.select();done();});});
+    // leesdrempel op stap 2: knop pas actief als je onderaan bent geweest
+    const gate=document.getElementById('gate');
+    if(gate&&'IntersectionObserver' in window){
+      const nb=screen.querySelector('[data-next]');
+      const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){nb.disabled=false;io.disconnect();}},{threshold:.1});
+      io.observe(gate);
+    } else if(gate){ screen.querySelector('[data-next]').disabled=false; }
+  }
+  function toggleNext(){
+    const nb=screen.querySelector('[data-next]'); if(!nb)return;
+    const ok = S.belofte!=null && S.afweging && (S.afweging==='ander'?!!S.ander:(S.afwegingWat&&S.afwegingWat!=='__anders'));
+    nb.disabled=!ok;
+  }
+  render();
+})();
+</script>

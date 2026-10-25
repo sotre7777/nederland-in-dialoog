@@ -1,0 +1,334 @@
+{
+ "toelichting": "Handmatige classificatie van nieuwsonderwerpen (uit sotre7777/nieuwsoverzicht) naar de elf principes. Per onderwerp hoogstens drie kandidaten, elk met de zin die de koppeling draagt. 'geen' is een geldige uitkomst. Dit bestand wordt later gevuld door een taalmodel; de regels blijven dezelfde: toon de dragende zin, laat de lezer kiezen, noem nooit een partij.",
+ "regels": {
+  "match": "onderwerp wordt gekoppeld als de titel de 'sleutel' bevat (hoofdletterongevoelig)",
+  "soort": "incident (nieuwsfeit, krijgt wachttijd) | besluit (beleid of politiek besluit) | meting (nieuwe onafhankelijke meting of rapport: schoonste trigger)"
+ },
+ "items": [
+  {
+   "sleutel": "Hajar",
+   "soort": "incident",
+   "kandidaten": [
+    {
+     "principe": "veiligheid",
+     "zin": "De discussie gaat over de vraag waarom de politie de noodappjes niet oppakte: de belofte 'wie je iets aandoet wordt gepakt' en de kloof tussen registratie en gevoel."
+    }
+   ]
+  },
+  {
+   "sleutel": "PHP-lek",
+   "soort": "incident",
+   "kandidaten": [
+    {
+     "principe": "veiligheid",
+     "zin": "Honderden Nederlandse websites, waaronder overheid en ziekenhuizen, gingen uit voorzorg offline: veiligheid online is een van de drie plekken in het principe."
+    }
+   ]
+  },
+  {
+   "sleutel": "draagmoeder",
+   "soort": "besluit",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "renteplafond",
+   "soort": "besluit",
+   "kandidaten": [
+    {
+     "principe": "onderwijs",
+     "zin": "Een belofte aan oud-studenten wordt ingetrokken omdat ze minstens vier keer duurder uitpakt: de rekening van het leenstelsel verschuift terug naar wie leende."
+    },
+    {
+     "principe": "inkomen",
+     "zin": "Oud-studenten zijn duurder uit terwijl de begroting ontzien wordt: wie draagt een tegenvaller, de leners of de belastingbetaler."
+    }
+   ]
+  },
+  {
+   "sleutel": "Storm",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Europees voetbal",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Starlink",
+   "soort": "incident",
+   "kandidaten": [
+    {
+     "principe": "defensie",
+     "zin": "Een private Amerikaanse partij bepaalt of een bondgenoot verbinding heeft: eigen capaciteit versus afhankelijkheid van bondgenoten."
+    }
+   ]
+  },
+  {
+   "sleutel": "executie",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Actie Onderdak",
+   "soort": "incident",
+   "kandidaten": [
+    {
+     "principe": "immigratie",
+     "zin": "Kerken bieden statushouders onderdak omdat de opvang vastloopt: het tempo dat huizen en buurten kunnen dragen, en 'we doen ons deel in het verwelkomen'."
+    },
+    {
+     "principe": "wonen",
+     "zin": "Statushouders wachten op een woning die er niet is: genoeg woningen voor het aantal inwoners dat we willen."
+    }
+   ]
+  },
+  {
+   "sleutel": "Ahold",
+   "soort": "incident",
+   "kandidaten": [
+    {
+     "principe": "veiligheid",
+     "zin": "Een cyberaanval legde de schappen van de grootste supermarkt leeg; de politie start een strafrechtelijk onderzoek."
+    }
+   ]
+  },
+  {
+   "sleutel": "Pieterburen",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Netanyahu",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Oekraïne: bestand",
+   "soort": "incident",
+   "kandidaten": [
+    {
+     "principe": "defensie",
+     "zin": "De koers van de VS richting Poetin raakt de vraag of Nederland zijn rol in de internationale rechtsorde serieus neemt, ook als bondgenoten dat minder doen."
+    }
+   ]
+  },
+  {
+   "sleutel": "Servië",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Iran",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "KLM",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Adelaarsnest",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "panter",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Antonelli",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Dance Event",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Israël kiest",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "belastingplan",
+   "soort": "besluit",
+   "kandidaten": [
+    {
+     "principe": "inkomen",
+     "zin": "Een minderheidskabinet onderhandelt met zeven oppositiepartijen over wie meer en wie minder belasting betaalt: de rekeningregel in het klein, elk ja heeft een betaler."
+    }
+   ]
+  },
+  {
+   "sleutel": "Walibi",
+   "soort": "incident",
+   "kandidaten": [
+    {
+     "principe": "veiligheid",
+     "zin": "Voor de tweede avond op rij ME-inzet bij een pretpark: het incident is de deur, de vraag is wat we al doen aan jongerenoverlast en wat werkte."
+    }
+   ]
+  },
+  {
+   "sleutel": "Frankrijk",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "midterms",
+   "soort": "incident",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "femicide",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "veiligheid",
+     "zin": "Een ggz-achtergrond voorspelt femicide, migratie niet: het verschil tussen beeldvorming en registratie, de kloof die het principe apart laat lezen."
+    },
+    {
+     "principe": "zorg",
+     "zin": "Als een ggz-achtergrond de voorspeller is, raakt dit de belofte dat zorg er is als je haar nodig hebt, ook in de ggz."
+    }
+   ]
+  },
+  {
+   "sleutel": "ingewikkelde puzzel",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "leefomgeving",
+     "zin": "Het CPB over de verdeling van schaarse ruimte: er zijn grenzen aan wat het land draagt en die bepalen wat kan."
+    },
+    {
+     "principe": "wonen",
+     "zin": "Ruimte voor woningen concurreert met natuur, landbouw en energie: bouwen versus ruimte."
+    }
+   ]
+  },
+  {
+   "sleutel": "Emissions Gap",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "leefomgeving",
+     "zin": "De kloof tussen klimaatbeloften en benodigde uitstoot: afstand tot de grens, onafhankelijk gemeten."
+    }
+   ]
+  },
+  {
+   "sleutel": "Play the Long Game",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "leefomgeving",
+     "zin": "Het PBL over langetermijnbeleid voor natuur en biodiversiteit: projecten van dertig jaar mogelijk maken."
+    }
+   ]
+  },
+  {
+   "sleutel": "voetafdruk",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "leefomgeving",
+     "zin": "Opties om de Nederlandse voetafdruk te verkleinen met het oog op de biodiversiteitsdoelen van 2030."
+    }
+   ]
+  },
+  {
+   "sleutel": "Schiphol",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "leefomgeving",
+     "zin": "Omwonenden vechten het luchtverkeersbesluit aan: de grens van wat de omgeving draagt tegenover de economie. Let op: Greenpeace is partij, geen onafhankelijke meting."
+    }
+   ]
+  },
+  {
+   "sleutel": "consumentenvertrouwen",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "inkomen",
+     "zin": "Het consumentenvertrouwen daalt weer: het ervaren cijfer naast het objectieve cijfer over rondkomen."
+    }
+   ]
+  },
+  {
+   "sleutel": "Wmo",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "zorg",
+     "zin": "33 procent meer Wmo-gebruikers van 75 tot 85 jaar en het aantal pgb's bijna gehalveerd: dichtbij versus geconcentreerd, en wie het werk doet."
+    }
+   ]
+  },
+  {
+   "sleutel": "bestaanszekerheid",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "inkomen",
+     "zin": "Het SCP: bestaanszekerheid gaat verder dan geld; beleid moet aansluiten bij het dagelijks leven."
+    },
+    {
+     "principe": "vangnet",
+     "zin": "Wie recht heeft op steun moet die ook durven vragen: niet-gebruik is de maat voor angst voor het vangnet."
+    }
+   ]
+  },
+  {
+   "sleutel": "wereldhandel",
+   "soort": "meting",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Heineken",
+   "soort": "meting",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "westnijl",
+   "soort": "meting",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "oceaanbescherming",
+   "soort": "meting",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "Onderzoeksraad",
+   "soort": "meting",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "DNB",
+   "soort": "meting",
+   "kandidaten": []
+  },
+  {
+   "sleutel": "NCSC",
+   "soort": "meting",
+   "kandidaten": [
+    {
+     "principe": "veiligheid",
+     "zin": "Het NCSC meet wat er werkelijk gebeurde met het PHP-lek: registratie tegenover beeldvorming."
+    }
+   ]
+  },
+  {
+   "sleutel": "ontmantelen",
+   "soort": "meting",
+   "kandidaten": []
+  }
+ ]
+}

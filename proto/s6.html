@@ -1,0 +1,39 @@
+<!doctype html><html lang="nl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=390">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--blue:#154273;--tint:#E6EDF5;--mid:#C4D3E6;--fg:#1B1F26;--muted:#5B6473;--line:#CFD7E2;--surface:#F6F8FB}
+*{box-sizing:border-box}body{margin:0;width:390px;min-height:844px;background:#fff;color:var(--fg);font-family:"Atkinson Hyperlegible",Arial,sans-serif;font-size:15px;line-height:1.45}
+.band{background:var(--blue);color:#fff;padding:14px 16px 12px}
+.brand{font-family:"Source Serif 4",Georgia,serif;font-size:20px;line-height:1.1}.brand small{display:block;font-family:inherit;font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-top:4px;font-family:"Atkinson Hyperlegible",Arial,sans-serif}
+.rail{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
+.rail span{border-top:2px solid rgba(255,255,255,.3);padding-top:5px;font-size:10.5px;color:rgba(255,255,255,.55)}.rail .done{border-top-color:#fff;color:rgba(255,255,255,.8)}.rail .cur{border-top-color:#fff;color:#fff;font-weight:700}
+.wrap{padding:22px 16px 90px}
+.stepno{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:6px}
+h1{font-family:"Source Serif 4",Georgia,serif;font-weight:500;font-size:27px;line-height:1.15;margin:0 0 8px}
+.lede{font-family:"Source Serif 4",Georgia,serif;font-size:17px;color:var(--muted);line-height:1.4;margin:0 0 20px}
+.grp{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:22px 0 6px;display:flex;justify-content:space-between}
+.row{border-top:1px solid var(--line);padding:12px 0 12px 16px;position:relative}.row:last-of-type{border-bottom:1px solid var(--line)}
+.row::before{content:"";position:absolute;left:0;top:13px;bottom:13px;width:3px;background:transparent}
+.row.sel{background:var(--tint)}.row.sel::before{background:var(--blue)}
+.row .h{font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.2;display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:3px}
+.row .s{font-size:13.5px;color:var(--muted)}.row .z{font-size:14.5px;margin-top:6px;border-left:2px solid var(--mid);padding-left:10px}
+.flat{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--blue);padding:12px 14px;margin-bottom:14px}
+.chip{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip.meting{border-color:var(--blue);color:var(--blue)}.chip.ruw{background:var(--tint);border-color:var(--mid);color:var(--blue)}
+.wait{background:var(--tint);border-left:3px solid var(--blue);padding:10px 12px;font-size:13.5px;margin:12px 0}
+.bar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;padding:14px 16px 18px;border-top:2px solid var(--blue);background:#fff}
+.btn{background:var(--blue);color:#fff;border:1px solid var(--blue);padding:11px 18px;font-weight:700;font-size:15px}.btn.ghost{background:none;color:var(--blue);border-color:var(--line)}.btn.off{opacity:.35}
+.kiz{border-top:1px solid var(--line);margin:12px 0}.kiz div{padding:9px 0 9px 12px;border-bottom:1px solid var(--line);border-left:3px solid var(--blue);font-size:14.5px}.kiz b{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:2px}
+.bel{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}.bel li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.score{border-top:1px solid var(--line)}.score div{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.score .b{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:8px;margin-bottom:3px}.score .r{color:var(--muted)}
+.dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--blue);display:inline-block;flex:none}.dot.h{background:linear-gradient(90deg,var(--blue) 50%,transparent 50%)}.dot.f{background:var(--blue)}
+.opt{border:1px solid var(--line);padding:11px 14px;margin-bottom:-1px}.opt.sel{border-color:var(--blue);background:var(--tint);position:relative;z-index:1}.opt .h{font-weight:700;margin-bottom:2px}.opt .s{font-size:13px;color:var(--muted)}
+label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700;margin:16px 0 6px}
+.field{border:1px solid var(--line);border-bottom:2px solid var(--blue);padding:9px 10px;font-size:14.5px;background:#fff;color:var(--fg)}.field.ph{color:var(--muted)}
+.sentence{font-family:"Source Serif 4",Georgia,serif;font-size:23px;line-height:1.3;color:var(--blue);border-top:2px solid var(--blue);border-bottom:1px solid var(--line);padding:14px 0;margin:16px 0}
+.cmp{border-top:2px solid var(--blue);margin:16px 0}.cmp div{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}.cmp .lab{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:6px;padding:0;border:0}.cmp .big{font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.3;padding:0;border:0}
+.close{font-family:"Source Serif 4",Georgia,serif;font-size:18.5px;line-height:1.35;margin-top:22px;padding:12px 0 0 14px;border-left:3px solid var(--blue)}
+.hint{font-size:13px;color:var(--muted)}.form{border-left:3px solid var(--blue);padding:2px 0 2px 14px;margin:12px 0}.form b{color:var(--blue)}
+.note{position:absolute;top:8px;right:8px;background:#FFF4C2;border:1px solid #E6C84A;font-size:11px;padding:4px 7px;max-width:170px;color:#5B4A00}
+</style></head><body><div class="band"><div class="brand">Nederland in Dialoog<small>Van nieuws naar principe naar eigen afweging</small></div><div class="rail"><span class="done">1</span><span class="done">2</span><span class="done">3</span><span class="done">4</span><span class="done">5</span><span class="cur">6</span><span class="">7</span></div></div><div class=note>Laag 4 (WIE) is niet uitgewerkt; v1 gebruikt alleen de &#x27;wat wij zelf doen&#x27;-regel. Twee actoren, geen drie.</div><div class="wrap"><div class="stepno">Stap 6 van 7 · Mijn deel</div><h1>Wat doe ik zelf?</h1><p class="lede">Niet alles is overheid. Elk principe heeft een regel over wat wij zelf doen.</p><div class="form"><b>Wat wij zelf doen</b> we snappen dat het type werk een spel is van vraag en aanbod; we spannen ons in om vaardigheden te hebben die passen. (Kiest in inspanning-versus-marktwaarde voor de markt.)</div><label>Jouw deel hierin</label><div class="field" style="min-height:70px">Ik accepteer dat mijn toeslag daalt als mijn loon stijgt, en bouw zelf een buffer op.</div></div><div class="bar"><span class=btn ghost>Terug</span><span class='btn'>Rond de cirkel</span></div></body></html>

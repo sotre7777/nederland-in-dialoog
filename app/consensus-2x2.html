@@ -2,11 +2,11 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <style>
-/* Layout: one column, the chart is the page; a short legend of the placement logic under it. */
-:root{--blue:#154273;--blue-ink:#154273;--tint:#E6EDF5;--mid:#C4D3E6;--bg:#FFFFFF;--fg:#1B1F26;--muted:#5B6473;--line:#CFD7E2;
+/* Layout: one column, the chart is the page; under it why each point moved. */
+:root{--blue:#154273;--blue-ink:#154273;--tint:#E6EDF5;--mid:#C4D3E6;--bg:#FFFFFF;--fg:#1B1F26;--muted:#5B6473;--line:#CFD7E2;--ghost:#9AA8BC;
   --display:"Source Serif 4",Georgia,serif;--body:"Atkinson Hyperlegible",system-ui,Arial,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--blue:#154273;--blue-ink:#8DB4E2;--tint:#1B2A3E;--mid:#2F4867;--bg:#0F141B;--fg:#E7EAEF;--muted:#9AA5B5;--line:#2A3545;color-scheme:dark}}
-:root[data-theme="dark"]{--blue:#154273;--blue-ink:#8DB4E2;--tint:#1B2A3E;--mid:#2F4867;--bg:#0F141B;--fg:#E7EAEF;--muted:#9AA5B5;--line:#2A3545;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--blue:#154273;--blue-ink:#8DB4E2;--tint:#1B2A3E;--mid:#2F4867;--bg:#0F141B;--fg:#E7EAEF;--muted:#9AA5B5;--line:#2A3545;--ghost:#5C6B80;color-scheme:dark}}
+:root[data-theme="dark"]{--blue:#154273;--blue-ink:#8DB4E2;--tint:#1B2A3E;--mid:#2F4867;--bg:#0F141B;--fg:#E7EAEF;--muted:#9AA5B5;--line:#2A3545;--ghost:#5C6B80;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
 .wrap{max-width:860px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -19,19 +19,21 @@ svg{width:100%;height:auto;display:block;max-width:100%}
 .axt{font-size:12px;fill:var(--fg);font-family:var(--body);font-weight:700}
 .lbl{font-size:13.5px;fill:var(--fg);font-family:var(--body);font-weight:700}
 .sub{font-size:11px;fill:var(--muted);font-family:var(--body)}
+.leg{font-size:11.5px;fill:var(--muted);font-family:var(--body)}
 .grp{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 8px}
 table{border-collapse:collapse;width:100%;font-size:13.5px}
 th,td{text-align:left;vertical-align:top;padding:7px 8px 7px 0;border-bottom:1px solid var(--line)}
 th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
 td:first-child{font-weight:700;white-space:nowrap}
+td:nth-child(2){white-space:nowrap;color:var(--muted)}
 .note{font-size:13px;color:var(--muted);margin-top:18px}
 </style>
 <div class="wrap">
-<div class="eyebrow">Fundering onder de principes · stand 6 november 2026</div>
+<div class="eyebrow">Fundering onder de principes · stand 6 november 2026, na lezing van 79 programma's 2010–2025</div>
 <h1>Waar is het ja gedeeld, en waar het hoe?</h1>
-<p class="lede">Tien principes op twee assen: eens over het doel, eens over de middelen. Plaatsing is een lezing van surveys, programma's 2025 en burgerberaden; geen meting.</p>
+<p class="lede">Tien principes op twee assen. Open punt: plaatsing op surveys en programma's 2025 (ochtend). Gevuld punt: na zes verkiezingen programma's. Acht punten bewegen nauwelijks; Defensie en Leefomgeving wel.</p>
 
-<svg viewBox="0 0 860 620" role="img" aria-label="2x2: doelconsensus horizontaal, middelenconsensus verticaal">
+<svg viewBox="0 0 860 640" role="img" aria-label="2x2: doelconsensus horizontaal, middelenconsensus verticaal; oude en nieuwe plaatsing">
   <!-- plot area 90..830 x 40..540 -->
   <rect x="90" y="40" width="740" height="500" fill="var(--bg)" stroke="var(--line)" />
   <rect x="460" y="40" width="370" height="250" fill="var(--tint)" opacity=".55" />
@@ -49,44 +51,61 @@ td:first-child{font-weight:700;white-space:nowrap}
   <text class="ax" transform="translate(62,536) rotate(-90)">laag</text>
   <text class="ax" transform="translate(62,110) rotate(-90)">hoog</text>
 
-  <!-- points: x = 90 + d*740, y = 540 - m*500 -->
+  <!-- legend -->
+  <circle cx="100" cy="612" r="5" fill="none" stroke="var(--ghost)" stroke-width="1.5"/><text class="leg" x="112" y="616">plaatsing op surveys + programma's 2025</text>
+  <circle cx="400" cy="612" r="6" fill="var(--blue-ink)"/><text class="leg" x="412" y="616">na programma's 2010–2025</text>
+
+  <!-- ghost points (old) with arrows to new; x = 90 + d*740, y = 540 - m*500 -->
+  <g fill="none" stroke="var(--ghost)" stroke-width="1.5">
+    <circle cx="793" cy="380" r="5"/><line x1="793" y1="385" x2="793" y2="394" stroke-dasharray="2 2"/>
+    <circle cx="771" cy="310" r="5"/><line x1="775" y1="313" x2="789" y2="327" stroke-dasharray="2 2"/>
+    <circle cx="756" cy="280" r="5"/><line x1="753" y1="284" x2="744" y2="300" stroke-dasharray="2 2"/>
+    <circle cx="741" cy="250" r="5"/><line x1="737" y1="254" x2="702" y2="276" stroke-dasharray="2 2"/>
+    <circle cx="719" cy="400" r="5"/><line x1="723" y1="404" x2="751" y2="426" stroke-dasharray="2 2"/>
+    <circle cx="682" cy="260" r="5"/><line x1="686" y1="262" x2="706" y2="268" stroke-dasharray="2 2"/>
+    <circle cx="578" cy="265" r="5"/><line x1="582" y1="269" x2="647" y2="335" stroke-dasharray="2 2"/>
+    <circle cx="460" cy="440" r="5"/><line x1="460" y1="445" x2="460" y2="443" stroke-dasharray="2 2"/>
+    <circle cx="445" cy="415" r="5"/><line x1="440" y1="415" x2="408" y2="415" stroke-dasharray="2 2"/>
+  </g>
+
+  <!-- new points -->
   <g fill="var(--blue-ink)">
-    <!-- Vangnet d.95 m.32 -->
-    <circle cx="793" cy="380" r="7"/><text class="lbl" x="783" y="402" text-anchor="end">Vangnet</text><text class="sub" x="783" y="416" text-anchor="end">vertrouwen vs fraude</text>
-    <!-- Zorg d.92 m.46 -->
-    <circle cx="771" cy="310" r="7"/><text class="lbl" x="761" y="305" text-anchor="end">Zorg</text><text class="sub" x="761" y="319" text-anchor="end">eigen risico, wat wel/niet</text>
-    <!-- Inkomen d.90 m.38 -->
-    <circle cx="756" cy="350" r="7"/><text class="lbl" x="746" y="354" text-anchor="end">Inkomen</text><text class="sub" x="746" y="368" text-anchor="end">minimumloon, toeslagen</text>
-    <!-- Veiligheid d.90 m.52 -->
-    <circle cx="756" cy="280" r="7"/><text class="lbl" x="746" y="270" text-anchor="end">Veiligheid</text><text class="sub" x="746" y="284" text-anchor="end">straffen vs voorkomen</text>
-    <!-- Wonen d.88 m.58 -->
-    <circle cx="741" cy="250" r="7"/><text class="lbl" x="750" y="240">Wonen</text><text class="sub" x="750" y="254">100k/jaar gedeeld; regie, bezwaar</text>
-    <!-- Pensioen d.85 m.28 -->
-    <circle cx="719" cy="400" r="7"/><text class="lbl" x="728" y="404">Pensioen</text><text class="sub" x="728" y="418">AOW-leeftijd 65 vs koppeling</text>
-    <!-- Onderwijs d.80 m.56 -->
-    <circle cx="682" cy="260" r="7"/><text class="lbl" x="672" y="250" text-anchor="end">Onderwijs</text><text class="sub" x="672" y="264" text-anchor="end">basisvaardigheden; wat nuttig is</text>
-    <!-- Defensie d.66 m.55 -->
-    <circle cx="578" cy="265" r="7"/><text class="lbl" x="587" y="290">Defensie</text><text class="sub" x="587" y="304">NAVO hoeksteen; SP, FVD, DENK niet</text>
-    <!-- Migratie incl bevolking d.50 m.20 -->
-    <circle cx="460" cy="440" r="7"/><text class="lbl" x="470" y="444">Migratie en bevolking</text><text class="sub" x="470" y="458">begrensd + integratie gedeeld; bescherming niet</text>
-    <!-- Leefomgeving d.48 m.25 -->
-    <circle cx="445" cy="415" r="7"/><text class="lbl" x="435" y="402" text-anchor="end">Leefomgeving</text><text class="sub" x="435" y="416" text-anchor="end">doorgeven gedeeld; klimaatdoel niet</text>
+    <!-- Vangnet d.95 m.28 -->
+    <circle cx="793" cy="400" r="7"/><text class="lbl" x="783" y="422" text-anchor="end">Vangnet</text><text class="sub" x="783" y="436" text-anchor="end">tegenprestatie splitst scherper (2025)</text>
+    <!-- Zorg d.95 m.42 -->
+    <circle cx="793" cy="330" r="7"/><text class="lbl" x="783" y="325" text-anchor="end">Zorg</text><text class="sub" x="783" y="339" text-anchor="end">zelfde doelzin sinds 2012; eigen risico 13 jaar</text>
+    <!-- Inkomen d.90 m.38 (ongewijzigd) -->
+    <circle cx="756" cy="350" r="7"/><text class="lbl" x="746" y="362" text-anchor="end">Inkomen</text><text class="sub" x="746" y="376" text-anchor="end">"werken moet lonen" sinds 2010</text>
+    <!-- Veiligheid d.88 m.47 -->
+    <circle cx="741" cy="305" r="7"/><text class="lbl" x="750" y="300">Veiligheid</text><text class="sub" x="750" y="314">rechtsstaat zelf wordt breuklijn (2025)</text>
+    <!-- Wonen d.82 m.52 -->
+    <circle cx="697" cy="280" r="7"/><text class="lbl" x="687" y="275" text-anchor="end">Wonen</text><text class="sub" x="687" y="289" text-anchor="end">doel unaniem, "iedereen" krimpt bij vier partijen</text>
+    <!-- Pensioen d.90 m.22 -->
+    <circle cx="756" cy="430" r="7"/><text class="lbl" x="765" y="434">Pensioen</text><text class="sub" x="765" y="448">AOW nooit betwist; leeftijd staat 13 jaar stil</text>
+    <!-- Onderwijs d.84 m.54 -->
+    <circle cx="712" cy="270" r="7"/><text class="lbl" x="721" y="262">Onderwijs</text><text class="sub" x="721" y="276">zes keer kamerbreed; art. 23 verhardt</text>
+    <!-- Defensie d.76 m.40 -->
+    <circle cx="652" cy="340" r="7"/><text class="lbl" x="661" y="344">Defensie</text><text class="sub" x="661" y="358">doel omhoog (NAVO 2010 → 3,5% 2025); hoe wordt de afruil</text>
+    <!-- Migratie d.50 m.18 -->
+    <circle cx="460" cy="450" r="7"/><text class="lbl" x="470" y="454">Migratie en bevolking</text><text class="sub" x="470" y="468">drietrap zes keer bevestigd; verdrag nu inzet</text>
+    <!-- Leefomgeving d.42 m.25 -->
+    <circle cx="401" cy="415" r="7"/><text class="lbl" x="391" y="402" text-anchor="end">Leefomgeving</text><text class="sub" x="391" y="416" text-anchor="end">enige doel dat drie verkiezingen daalt</text>
   </g>
 </svg>
 
-<div class="grp">Hoe de plaatsing tot stand kwam</div>
+<div class="grp">Wat bewoog, en waarom</div>
 <table>
-<tr><th>Principe</th><th>Doel: waarom daar</th><th>Middelen: waarom daar</th></tr>
-<tr><td>Vangnet</td><td>93% belangrijk, 83% overheidsdoel (SCP 2022); geen partij ontkent het doel</td><td>78% harde fraudeaanpak naast 93% vangnet; voorwaarden en wie eronder valt zijn de strijd</td></tr>
-<tr><td>Inkomen</td><td>"Werken moet lonen" letterlijk bij SP, NSC, CU, CDA, JA21, VVD; PVV in andere woorden</td><td>Minimumloon €16: 52%; basisinkomen 45%; toeslagen vs koppeling uitkeringen</td></tr>
-<tr><td>Zorg</td><td>"Toegankelijk en betaalbaar" van D66 tot SGP; #2 sterk punt</td><td>Eigen risico: afschaffen, bevriezen, behouden; burgerforum accepteert wel eigen bijdragen</td></tr>
-<tr><td>Pensioen</td><td>AOW "fundament" bij NSC, CDA, 50PLUS; solidariteit met ouderen hoogste en stabiel</td><td>AOW-leeftijd 65 (SP, PVV), 66 (FVD), koppeling (VVD); 53% wil terug naar 65</td></tr>
-<tr><td>Wonen</td><td>"Betaalbare woning voor iedereen" GL-PvdA, CU, Volt; recht bij SP, D66; topprioriteit PVV</td><td>100.000/jaar bij CU, CDA, FVD, DENK; strijd om regie, bezwaar, huurregulering</td></tr>
-<tr><td>Onderwijs</td><td>Basisvaardigheden bij BBB, 50PLUS, CU, D66; 14% sterk punt</td><td>Weinig expliciete middelenstrijd, maar "wat nuttig en nodig is" is nergens uitgewerkt</td></tr>
-<tr><td>Veiligheid</td><td>Vrijwel dezelfde doelzin bij GL-PvdA en PVV; politie 79% vertrouwen</td><td>Straffen vs voorkomen; toezicht vs vrijheid</td></tr>
-<tr><td>Defensie</td><td>"NAVO hoeksteen" NSC, 50PLUS, PVV; 69% gelijkwaardige bijdrage; SP, FVD, DENK wijken af</td><td>3,5% breed gedeeld; 42% → 31% zodra het wonen of zorg kost</td></tr>
-<tr><td>Migratie en bevolking</td><td>Begrensd + integratie gedeeld (>90% taal, 67% max arbeidsmigratie); bescherming in NL niet (PVV, FVD)</td><td>Plafond, regio, verdragen: alles omstreden; bevolkingsomvang nooit gemeten</td></tr>
-<tr><td>Leefomgeving</td><td>"Leefbaar doorgeven" bij vrijwel iedereen; klimaatdoel zelf niet (PVV, FVD, BBB-voorwaarden)</td><td>Verdeling van de kosten: 82% oneerlijk; vier voorwaarden Klimaatraadpleging</td></tr>
+<tr><th>Principe</th><th>Beweging</th><th>Wat de zes verkiezingen toevoegen</th></tr>
+<tr><td>Defensie</td><td>doel → , hoe ↓</td><td>Het enige doel dat echt verschoof: GroenLinks wilde in 2010 de NAVO afschaffen, SP omvormen; in 2025 omarmen zes partijen 3,5% en verwerpen alleen SP en FVD de NAVO. Tegelijk is het in 2025 het eerste meerpartijen-zelfs-als-cluster (BBB, D66, GL-PvdA, PvdD, NSC: niet ten koste van AOW/zorg/vangnet/onderwijs/klimaat; CDA en VVD: waar het geld vandaan komt). Hoger op doel, lager op hoe.</td></tr>
+<tr><td>Leefomgeving</td><td>doel ←</td><td>Het doorgeven-doel is in alle zes jaren bij vrijwel iedereen, maar het klimaatdoel was in 2017 het breedst (zelfs VVD "Parijs nakomen") en wordt sinds 2021 door PVV en FVD verworpen en door JA21 en BBB gerelativeerd. Enige principe waarvan het doel-ja in de laatste drie verkiezingen afnam.</td></tr>
+<tr><td>Wonen</td><td>doel ←, hoe ↓</td><td>Doel unaniem sinds 2017 (in 2010–2012 nauwelijks uitgesproken: cyclisch, niet jong). Nieuw in 2025: "iedereen" wordt bij VVD (werkenden), PVV, FVD, JA21 (geen statushouders) ingeperkt. De regie-consensus van 2023 blijft, maar de segmentstrijd (30/33/40% sociaal versus minder) is scherper dan de ochtendplaatsing aannam.</td></tr>
+<tr><td>Pensioen</td><td>doel →, hoe ↓</td><td>AOW als fundament is in geen enkel jaar betwist, dus het doel staat hoger dan geschat. De leeftijd is sinds 2012 het breukpunt en is geen millimeter verschoven: dezelfde partijen, dezelfde getallen. Het "hoe" staat het langst stil van alle principes.</td></tr>
+<tr><td>Vangnet</td><td>hoe ↓</td><td>Doel bevestigd (acht van tien partijen al in 2010). Het raamwerk-element "vertrouwen, tijdelijk als uitgangspunt" is sinds 2017 steeds scherper de scheidslijn en is in 2025 bijna een doelverschil: onvoorwaardelijke bodem (SP, PvdD, GL-PvdA, NSC) tegenover wederkerigheid en plafond (VVD, JA21, SGP).</td></tr>
+<tr><td>Zorg</td><td>doel →</td><td>Meest stabiele doel van alle tien, in vrijwel dezelfde woorden sinds 2012 ("niet de dikte van de portemonnee"). Het hoe is al dertien jaar hetzelfde gevecht om het eigen risico; de afruil zorg-tegenover-onderwijs/politie stond al bij VVD en D66 in 2012 en is in 2025 terug.</td></tr>
+<tr><td>Onderwijs</td><td>doel →, hoe ↓</td><td>Het doel is zes keer kamerbreed, dus hoger dan geschat; het verschuift wel van ontplooiing (2010–2017) naar basisvaardigheden (2021–2025). Artikel 23 is de enige echte doelstrijd en verhardt (PVV verbod islamitisch onderwijs, Volt stopt financiering religieus onderwijs, VVD/SP acceptatieplicht). AI of online komt in geen enkel onderwijsdoel voor.</td></tr>
+<tr><td>Veiligheid</td><td>doel ←, hoe ↓</td><td>Doelzin sinds 2017 gelijkluidend van PVV tot GL-PvdA. Nieuw in 2025: de rechtsstaat zelf is een doelverschil (FVD handhaaft toetsingsverbod en schrapt directe werking van verdragen; D66, SP, PvdD voeren toetsing in). Dat is meer dan strafmaat en haalt het doel iets naar links.</td></tr>
+<tr><td>Inkomen</td><td>–</td><td>Ongewijzigd. "Werken moet lonen" staat bij D66, VVD, SP, GL en PvdA in 2010 en letterlijk van SP tot VVD in 2025. Eén aantekening: VVD maakt het doel in 2025 relatief (werkenden moeten er méér op vooruitgaan dan niet-werkenden). Dat is de echte breuklijn, niet het minimumloon.</td></tr>
+<tr><td>Migratie en bevolking</td><td>–</td><td>Plaatsing bevestigd. De drietrap (begrensd, integratie, opvang bij oorlog) is in alle zes jaren zichtbaar en elke flank ontkent één trede, sinds 2023 wederzijds en expliciet. Bevolkingsomvang is tot 2021 door niemand als doel genoemd en wordt in 2025 van drie kanten uitgesproken (CDA en GL-PvdA via het Staatscommissie-scenario, FVD, NSC, SGP). Het Vluchtelingenverdrag zelf is in 2025 bij drie partijen inzet.</td></tr>
 </table>
-<p class="note">Bron: rapport "Fundering onder de elf principes" (6 november 2026) met SCP, CBS, ESS, Pew, Eurobarometer, verkiezingsprogramma's 2025 (DNPP) en burgerberaden. Bevolking is hier onder Migratie gebracht. Posities zijn ordinaal bedoeld: de afstand tussen twee punten zegt meer dan de absolute plek.</p>
+<p class="note">Bron: rapporten "Fundering onder de elf principes" en "Programma's 2010–2025" (6 november 2026). 79 van 82 programma's van zetelwinnende partijen gelezen op doel- en afweegtaal; ontbreken PVV 2017, PvdD 2023, SGP 2012. Posities zijn ordinaal bedoeld: de afstand tussen twee punten zegt meer dan de absolute plek. Partijen zijn geteld, niet gewogen naar zetels.</p>
 </div>
